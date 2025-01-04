@@ -1,9 +1,11 @@
 import React, { Suspense } from "react";
 import Woman from "./Woman";
+import CameraControls from "./CameraControls";
 
 const Experience = () => {
   return (
     <>
+      <CameraControls />
       <ambientLight />
       <directionalLight
         position={[-5, 5, 5]}

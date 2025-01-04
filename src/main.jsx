@@ -3,11 +3,14 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { AnimationProvider } from "./context/CharacterAnimation.jsx";
+import { CharacterCustomizationProvider } from "./context/CharacterCustomization.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AnimationProvider>
-      <App />
-    </AnimationProvider>
+    <CharacterCustomizationProvider>
+      <AnimationProvider>
+        <App />
+      </AnimationProvider>
+    </CharacterCustomizationProvider>
   </StrictMode>
 );

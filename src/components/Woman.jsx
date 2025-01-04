@@ -8,6 +8,7 @@ import { useGraph } from "@react-three/fiber";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { SkeletonUtils } from "three-stdlib";
 import { useAnimation } from "../context/CharacterAnimation";
+import { useCharacterCustomization } from "../context/CharacterCustomization";
 
 const Woman = (props) => {
   const group = React.useRef();
@@ -16,6 +17,17 @@ const Woman = (props) => {
   const { nodes, materials } = useGraph(clone);
   const { actions, names } = useAnimations(animations, group);
   const { setAnimations, animationIndex } = useAnimation();
+  const {
+    hairColor,
+    eyeColor,
+    mouthColor,
+    glassColor,
+    shirtColor,
+    paintsColor,
+    shoseColor,
+    lacesColor,
+    soleColor,
+  } = useCharacterCustomization();
 
   useEffect(() => {
     setAnimations(names);
@@ -36,23 +48,26 @@ const Woman = (props) => {
               castShadow
               name="Mesh019"
               geometry={nodes.Mesh019.geometry}
-              material={materials.Glasses}
               skeleton={nodes.Mesh019.skeleton}
-            />
+            >
+              <meshStandardMaterial {...materials.Glasses} color={glassColor} />
+            </skinnedMesh>
             <skinnedMesh
               castShadow
               name="Mesh019_1"
               geometry={nodes.Mesh019_1.geometry}
-              material={materials.Eyes}
               skeleton={nodes.Mesh019_1.skeleton}
-            />
+            >
+              <meshStandardMaterial {...materials.Eyes} color={eyeColor} />
+            </skinnedMesh>
             <skinnedMesh
               castShadow
               name="Mesh019_2"
               geometry={nodes.Mesh019_2.geometry}
-              material={materials.Hair}
               skeleton={nodes.Mesh019_2.skeleton}
-            />
+            >
+              <meshStandardMaterial {...materials.Hair} color={hairColor} />
+            </skinnedMesh>
             <skinnedMesh
               castShadow
               name="Mesh019_3"
@@ -66,42 +81,49 @@ const Woman = (props) => {
               geometry={nodes.Mesh019_4.geometry}
               material={materials.Mouth}
               skeleton={nodes.Mesh019_4.skeleton}
-            />
+            >
+              <meshStandardMaterial {...materials.Mouth} color={mouthColor} />
+            </skinnedMesh>
             <skinnedMesh
               castShadow
               name="Mesh019_5"
               geometry={nodes.Mesh019_5.geometry}
-              material={materials.Shirt}
               skeleton={nodes.Mesh019_5.skeleton}
-            />
+            >
+              <meshStandardMaterial {...materials.Shirt} color={shirtColor} />
+            </skinnedMesh>
             <skinnedMesh
               castShadow
               name="Mesh019_6"
               geometry={nodes.Mesh019_6.geometry}
-              material={materials.Pants}
               skeleton={nodes.Mesh019_6.skeleton}
-            />
+            >
+              <meshStandardMaterial {...materials.Pants} color={paintsColor} />
+            </skinnedMesh>
             <skinnedMesh
               castShadow
               name="Mesh019_7"
               geometry={nodes.Mesh019_7.geometry}
-              material={materials.Shoes}
               skeleton={nodes.Mesh019_7.skeleton}
-            />
+            >
+              <meshStandardMaterial {...materials.Shoes} color={shoseColor} />
+            </skinnedMesh>
             <skinnedMesh
               castShadow
               name="Mesh019_8"
               geometry={nodes.Mesh019_8.geometry}
-              material={materials.Sole}
               skeleton={nodes.Mesh019_8.skeleton}
-            />
+            >
+              <meshStandardMaterial {...materials.Sole} color={soleColor} />
+            </skinnedMesh>
             <skinnedMesh
               castShadow
               name="Mesh019_9"
               geometry={nodes.Mesh019_9.geometry}
-              material={materials.Laces}
               skeleton={nodes.Mesh019_9.skeleton}
-            />
+            >
+              <meshStandardMaterial {...materials.Laces} color={lacesColor} />
+            </skinnedMesh>
           </group>
         </group>
       </group>
